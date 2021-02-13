@@ -1,0 +1,18 @@
+[
+  {
+  "path": "./slider/img01.png",
+  "caption": "img01"
+  },
+  {
+  "path": "./slider/img02.png",
+  "caption": "img02"
+  }, 
+  {
+  "path": "./slider/img03.png",
+  "caption": "img03"
+  },
+  {
+  "path": "./slider/img04.png",
+  "caption": "img04"
+  }
+]

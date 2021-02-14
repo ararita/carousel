@@ -5,7 +5,7 @@ const Slide = ({ path, caption, images, slideLeft, slideRight, index }) => {
 
   return (
     <div className="slider">
-      <img className={`${caption} slide`} src={path} alt={caption} />
+      <img className={`${caption} slide active`} src={path} alt={caption} />
       {/* <img src={images[index]} alt={index} /> */}
       <div className="bottom">
         <div className="dots">

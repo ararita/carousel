@@ -17,13 +17,11 @@ function Slider() {
       })
         .then((response) => {
           if (response.ok) {
-            return response;
+            console.log(response);
+
+            return response.json();
           }
-          throw new Error("Could not fetch posts");
-        })
-        .then((response) => {
-          console.log(response);
-          return response.json();
+          throw new Error("Could not fetch images");
         })
         .then((myJson) => {
           console.log(myJson);
@@ -41,7 +39,7 @@ function Slider() {
   if (!images) return null;
 
   return (
-    <div>
+    <div className="slider-container">
       {error
         ? error
         : images.map((image) => (
@@ -49,6 +47,7 @@ function Slider() {
               path={image.path}
               caption={image.caption}
               key={image.caption}
+              images={images}
             />
           ))}
     </div>

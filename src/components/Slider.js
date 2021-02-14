@@ -4,10 +4,9 @@ import Slide from "./Slide";
 function Slider() {
   const [images, setImages] = useState([]);
   const [error, setError] = useState(null);
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    // if (!images) return;
-
     const getData = () => {
       fetch("slider-images.json", {
         headers: {
@@ -33,7 +32,24 @@ function Slider() {
         });
     };
     getData();
-  }, []);
+  }, [index]);
+
+  const slideRight = () => {
+    setIndex((index + 1) % images.length);
+
+    console.log("clicked right arrow, index: ", index);
+  };
+
+  const slideLeft = () => {
+    console.log("clicked left arrowindex: ", index);
+
+    const nextIndex = index - 1;
+    if (nextIndex < 0) {
+      setIndex(images.length - 1); // return last index of images array
+    } else {
+      setIndex(nextIndex);
+    }
+  };
 
   if (error) return <h2>Something went wrong</h2>;
   if (!images) return null;
@@ -48,6 +64,9 @@ function Slider() {
               caption={image.caption}
               key={image.caption}
               images={images}
+              slideLeft={slideLeft}
+              slideRight={slideRight}
+              index={index}
             />
           ))}
     </div>

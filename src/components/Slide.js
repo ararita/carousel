@@ -1,6 +1,8 @@
 import React from "react";
 
 const Slide = ({ path, caption, images, slideLeft, slideRight, index }) => {
+  console.log("index", index);
+
   return (
     <div className="slider">
       <img className={`${caption} slide`} src={path} alt={caption} />

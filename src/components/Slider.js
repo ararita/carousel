@@ -5,6 +5,13 @@ function Slider() {
   const [images, setImages] = useState([]);
   const [error, setError] = useState(null);
   const [index, setIndex] = useState(0);
+  const [isActive, setIsActive] = useState(true);
+
+  const activeSlide = isActive ? "block" : "none";
+
+  const flipActiveness = () => {
+    setIsActive(!isActive);
+  };
 
   useEffect(() => {
     const getData = () => {
@@ -32,21 +39,17 @@ function Slider() {
         });
     };
     getData();
-  }, [index]);
+  }, [setIndex]);
 
   const slideRight = () => {
-    setIndex((index + 1) % images.length);
-
-    console.log("clicked right arrow, index: ", index);
+    if (index < images.length - 1) {
+      setIndex((index + 1) % images.length);
+    }
   };
 
   const slideLeft = () => {
-    console.log("clicked left arrowindex: ", index);
-
     const nextIndex = index - 1;
-    if (nextIndex < 0) {
-      setIndex(images.length - 1); // return last index of images array
-    } else {
+    if (nextIndex > -1) {
       setIndex(nextIndex);
     }
   };

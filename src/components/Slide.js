@@ -9,8 +9,8 @@ const Slide = ({
   index,
   slideIndex,
 }) => {
-  console.log("index", index);
-  console.log("slideIndex", slideIndex);
+  // console.log("index", index);
+  // console.log("slideIndex", slideIndex);
 
   const activeSlide = index === slideIndex ? "active" : "";
 

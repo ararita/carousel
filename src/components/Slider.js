@@ -5,9 +5,6 @@ function Slider() {
   const [images, setImages] = useState([]);
   const [error, setError] = useState(null);
   const [index, setIndex] = useState(0);
-  const [isActive, setIsActive] = useState(true);
-  const [isDisabled, setIsDisabled] = useState(false);
-  const [activeDot, setActiveDot] = useState(true);
 
   useEffect(() => {
     const getData = () => {
@@ -37,37 +34,15 @@ function Slider() {
     getData();
   }, [setIndex]);
 
-  const flipActiveness = () => {
-    setIsActive((isActive) => !isActive);
-  };
-
-  const disableButton = () => {
-    setIsDisabled((isDisabled) => !isDisabled);
-  };
-
-  const activeDots = () => {
-    setActiveDot((activeDot) => !activeDot);
-  };
-
   const slideRight = () => {
     if (index < images.length - 1) {
       setIndex((index) => index + 1);
-      flipActiveness();
-      activeDots();
-    } else {
-      disableButton();
-      console.log("disabled");
     }
   };
 
   const slideLeft = () => {
     if (index > 0) {
       setIndex((index) => index - 1);
-      flipActiveness();
-      activeDots();
-    } else {
-      disableButton();
-      console.log("disabled");
     }
   };
 

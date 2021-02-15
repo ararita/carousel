@@ -85,13 +85,14 @@ button img {
   margin-left: 2.5rem;
 }
 .dot {
-  background: white;
   border-radius: 50%;
   height: 0.4rem;
   width: 0.4rem;
   margin: 0.2rem;
+  background: rgb(113, 114, 114);
 }
 
 .dot.active {
-  background: rgb(113, 114, 114);
+  background: white;
+  margin-right: 1rem;
 }

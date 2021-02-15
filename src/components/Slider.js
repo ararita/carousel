@@ -7,6 +7,7 @@ function Slider() {
   const [index, setIndex] = useState(0);
   const [isActive, setIsActive] = useState(true);
   const [isDisabled, setIsDisabled] = useState(false);
+  const [activeDot, setActiveDot] = useState(true);
 
   useEffect(() => {
     const getData = () => {
@@ -37,17 +38,22 @@ function Slider() {
   }, [setIndex]);
 
   const flipActiveness = () => {
-    setIsActive(!isActive);
+    setIsActive((isActive) => !isActive);
   };
 
   const disableButton = () => {
-    setIsDisabled(!isDisabled);
+    setIsDisabled((isDisabled) => !isDisabled);
+  };
+
+  const activeDots = () => {
+    setActiveDot((activeDot) => !activeDot);
   };
 
   const slideRight = () => {
     if (index < images.length - 1) {
-      setIndex(index + 1);
+      setIndex((index) => index + 1);
       flipActiveness();
+      activeDots();
     } else {
       disableButton();
       console.log("disabled");
@@ -56,8 +62,9 @@ function Slider() {
 
   const slideLeft = () => {
     if (index > 0) {
-      setIndex(index - 1);
+      setIndex((index) => index - 1);
       flipActiveness();
+      activeDots();
     } else {
       disableButton();
       console.log("disabled");
@@ -87,7 +94,10 @@ function Slider() {
         <div className="bottom">
           <div className="dots">
             {images.map((image, i) => (
-              <div className="dot" key={i}></div>
+              <div
+                className={`dot ${index === i ? "active" : ""}`}
+                key={i}
+              ></div>
             ))}
           </div>
           <div className="arrows">

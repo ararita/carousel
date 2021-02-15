@@ -86,13 +86,18 @@ button img {
 }
 .dot {
   border-radius: 50%;
-  height: 0.4rem;
   width: 0.4rem;
-  margin: 0.2rem;
-  background: rgb(113, 114, 114);
+  height: 0.4rem;
+  margin: 0.25rem;
+  background: white;
+  opacity: 0.3;
 }
 
 .dot.active {
-  background: white;
   margin-right: 1rem;
+}
+
+.seen,
+.dot.active {
+  opacity: 1;
 }

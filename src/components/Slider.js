@@ -95,13 +95,14 @@ function Slider() {
           <div className="dots">
             {images.map((image, i) => (
               <div
-                className={`dot ${index === i ? "active" : ""}`}
+                className={`dot ${index === i ? "active" : ""} ${
+                  index > i ? "seen" : ""
+                }`}
                 key={i}
               ></div>
             ))}
           </div>
           <div className="arrows">
-            {/* <img className={`${caption} slide ${index === key ? "active" : ""}`} src={path} alt={caption} /> */}
             <button
               className={`arrow arrow-prev ${index === 0 ? "inactive" : ""}`}
               onClick={slideLeft}

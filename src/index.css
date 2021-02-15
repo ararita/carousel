@@ -46,15 +46,29 @@ body,
 
 button {
   background: white;
-  /* border: 0; */
-
+  border: 0;
+  cursor: pointer;
   height: 4.3rem;
   padding: 1.5rem;
   width: 4.3rem;
+  outline: none;
 }
 
 button img {
-  width: 60%;
+  width: 65%;
+}
+
+.arrows {
+  display: flex;
+}
+
+.arrow-prev img {
+  transform: rotate(-180deg);
+}
+
+.arrow.inactive img {
+  opacity: 0.4;
+  cursor: no-drop;
 }
 
 .bottom {
@@ -66,14 +80,6 @@ button img {
   align-items: baseline;
 }
 
-.arrows {
-  display: flex;
-}
-
-.arrow-prev img {
-  transform: rotate(-180deg);
-}
-
 .dots {
   display: flex;
   margin-left: 2.5rem;
@@ -83,6 +89,7 @@ button img {
   border-radius: 50%;
   height: 0.4rem;
   width: 0.4rem;
+  margin: 0.2rem;
 }
 
 .dot.active {

@@ -6,10 +6,7 @@ function Slider() {
   const [error, setError] = useState(null);
   const [index, setIndex] = useState(0);
   const [isActive, setIsActive] = useState(true);
-
-  const flipActiveness = () => {
-    setIsActive(!isActive);
-  };
+  const [isDisabled, setIsDisabled] = useState(false);
 
   useEffect(() => {
     const getData = () => {
@@ -39,10 +36,21 @@ function Slider() {
     getData();
   }, [setIndex]);
 
+  const flipActiveness = () => {
+    setIsActive(!isActive);
+  };
+
+  const disableButton = () => {
+    setIsDisabled(!isDisabled);
+  };
+
   const slideRight = () => {
     if (index < images.length - 1) {
       setIndex(index + 1);
       flipActiveness();
+    } else {
+      disableButton();
+      console.log("disabled");
     }
   };
 
@@ -50,6 +58,9 @@ function Slider() {
     if (index > 0) {
       setIndex(index - 1);
       flipActiveness();
+    } else {
+      disableButton();
+      console.log("disabled");
     }
   };
 
@@ -71,7 +82,6 @@ function Slider() {
                 slideRight={slideRight}
                 index={index}
                 slideIndex={i}
-                flipActiveness={flipActiveness}
               />
             ))}
         <div className="bottom">
@@ -81,10 +91,20 @@ function Slider() {
             ))}
           </div>
           <div className="arrows">
-            <button className="arrow arrow-prev" onClick={slideLeft}>
+            {/* <img className={`${caption} slide ${index === key ? "active" : ""}`} src={path} alt={caption} /> */}
+            <button
+              className={`arrow arrow-prev ${index === 0 ? "inactive" : ""}`}
+              onClick={slideLeft}
+            >
               <img src="./slider/arrow.svg" alt="arrow prev" />
             </button>
-            <button className="arrow arrow-next" onClick={slideRight}>
+
+            <button
+              className={`arrow arrow-next ${
+                index === images.length - 1 ? "inactive" : ""
+              }`}
+              onClick={slideRight}
+            >
               <img src="./slider/arrow.svg" alt="arrow next" />
             </button>
           </div>

@@ -12,9 +12,11 @@ const Slide = ({
   console.log("index", index);
   console.log("slideIndex", slideIndex);
 
+  const activeSlide = index === slideIndex ? "active" : "";
+
   return (
     <img
-      className={`${caption} slide ${index === slideIndex ? "active" : ""}`}
+      className={`${caption} slide ${activeSlide}`}
       src={path}
       alt={caption}
     />

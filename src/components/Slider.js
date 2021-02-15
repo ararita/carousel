@@ -7,8 +7,6 @@ function Slider() {
   const [index, setIndex] = useState(0);
   const [isActive, setIsActive] = useState(true);
 
-  const activeSlide = isActive ? "block" : "none";
-
   const flipActiveness = () => {
     setIsActive(!isActive);
   };
@@ -43,14 +41,15 @@ function Slider() {
 
   const slideRight = () => {
     if (index < images.length - 1) {
-      setIndex((index + 1) % images.length);
+      setIndex(index + 1);
+      flipActiveness();
     }
   };
 
   const slideLeft = () => {
-    const nextIndex = index - 1;
-    if (nextIndex > -1) {
-      setIndex(nextIndex);
+    if (index > 0) {
+      setIndex(index - 1);
+      flipActiveness();
     }
   };
 
@@ -59,19 +58,38 @@ function Slider() {
 
   return (
     <div className="slider-container">
-      {error
-        ? error
-        : images.map((image) => (
-            <Slide
-              path={image.path}
-              caption={image.caption}
-              key={image.caption}
-              images={images}
-              slideLeft={slideLeft}
-              slideRight={slideRight}
-              index={index}
-            />
-          ))}
+      <div className="slider">
+        {error
+          ? error
+          : images.map((image, i) => (
+              <Slide
+                key={i}
+                path={image.path}
+                caption={image.caption}
+                images={images}
+                slideLeft={slideLeft}
+                slideRight={slideRight}
+                index={index}
+                slideIndex={i}
+                flipActiveness={flipActiveness}
+              />
+            ))}
+        <div className="bottom">
+          <div className="dots">
+            {images.map((image, i) => (
+              <div className="dot" key={i}></div>
+            ))}
+          </div>
+          <div className="arrows">
+            <button className="arrow arrow-prev" onClick={slideLeft}>
+              <img src="./slider/arrow.svg" alt="arrow prev" />
+            </button>
+            <button className="arrow arrow-next" onClick={slideRight}>
+              <img src="./slider/arrow.svg" alt="arrow next" />
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -49,7 +49,7 @@ body,
   transform: translateX(0);
 }
 
-.slide.out-left {
+.out-left {
   transform: translateX(100%);
 }
 

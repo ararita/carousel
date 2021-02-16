@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Slide from "./Slide";
+import Dots from "./Dots";
+import Buttons from "./Buttons";
 
 function Slider() {
   const [images, setImages] = useState([]);
@@ -66,33 +68,13 @@ function Slider() {
               />
             ))}
         <div className="bottom">
-          <div className="dots">
-            {images.map((image, i) => (
-              <div
-                className={`dot ${index === i ? "active" : ""} ${
-                  index > i ? "seen" : ""
-                }`}
-                key={i}
-              ></div>
-            ))}
-          </div>
-          <div className="arrows">
-            <button
-              className={`arrow arrow-prev ${index === 0 ? "inactive" : ""}`}
-              onClick={slideLeft}
-            >
-              <img src="./slider/arrow.svg" alt="arrow prev" />
-            </button>
-
-            <button
-              className={`arrow arrow-next ${
-                index === images.length - 1 ? "inactive" : ""
-              }`}
-              onClick={slideRight}
-            >
-              <img src="./slider/arrow.svg" alt="arrow next" />
-            </button>
-          </div>
+          <Dots images={images} index={index} />
+          <Buttons
+            images={images}
+            index={index}
+            slideLeft={slideLeft}
+            slideRight={slideRight}
+          />
         </div>
       </div>
     </div>

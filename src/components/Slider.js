@@ -16,14 +16,13 @@ function Slider() {
       })
         .then((response) => {
           if (response.ok) {
-            console.log(response);
-
+            // console.log(response);
             return response.json();
           }
           throw new Error("Could not fetch images");
         })
         .then((myJson) => {
-          console.log(myJson);
+          // console.log(myJson);
           setImages(myJson);
         })
         .catch((err) => {

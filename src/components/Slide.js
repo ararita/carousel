@@ -14,9 +14,11 @@ const Slide = ({
 
   const activeSlide = index === slideIndex ? "active" : "";
 
+  const previousSlide = index === slideIndex - 1 ? "out-left" : "";
+
   return (
     <img
-      className={`${caption} slide ${activeSlide}`}
+      className={`${caption} slide ${activeSlide} ${previousSlide}`}
       src={path}
       alt={caption}
     />

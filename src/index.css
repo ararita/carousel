@@ -52,6 +52,10 @@ body,
 .out-left {
   transform: translateX(100%);
 }
+/* 
+.out-right {
+  transform: translateX(-100%);
+} */
 
 button {
   background: white;

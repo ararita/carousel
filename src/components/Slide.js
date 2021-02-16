@@ -1,14 +1,6 @@
 import React from "react";
 
-const Slide = ({
-  path,
-  caption,
-  images,
-  slideLeft,
-  slideRight,
-  index,
-  slideIndex,
-}) => {
+const Slide = ({ path, caption, images, index, slideIndex }) => {
   // console.log("index", index);
   // console.log("slideIndex", slideIndex);
 

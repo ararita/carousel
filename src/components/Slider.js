@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import Slide from "./Slide";
 import Dots from "./Dots";
 import Buttons from "./Buttons";
+import userEvent from "@testing-library/user-event";
 
 function Slider() {
   const [images, setImages] = useState([]);
   const [error, setError] = useState(null);
   const [index, setIndex] = useState(0);
+  const [direction, setDirection] = useState("");
 
   useEffect(() => {
     const getData = () => {
@@ -36,12 +38,14 @@ function Slider() {
   const slideRight = () => {
     if (index < images.length - 1) {
       setIndex((index) => index + 1);
+      setDirection((direction) => (direction = "right"));
     }
   };
 
   const slideLeft = () => {
     if (index > 0) {
       setIndex((index) => index - 1);
+      setDirection((direction) => (direction = "left"));
     }
   };
 
@@ -63,6 +67,7 @@ function Slider() {
                 slideRight={slideRight}
                 index={index}
                 slideIndex={i}
+                direction={direction}
               />
             ))}
         <div className="bottom">

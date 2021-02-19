@@ -1,6 +1,6 @@
 import React from "react";
 
-const Buttons = ({ index, images, slideLeft, slideRight }) => {
+const Buttons = ({ index, images, slideLeft, slideRight, move }) => {
   return (
     <div className="arrows">
       <button

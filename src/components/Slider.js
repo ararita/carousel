@@ -52,10 +52,7 @@ function Slider() {
       setIndex((index) => index - 1);
       setDirection((direction) => (direction = "left"));
       animate = "animate-left";
-
     }
-    console.log("animate", animate)
-
   };
 
   if (error) return <h2>Something went wrong</h2>;
@@ -72,8 +69,6 @@ function Slider() {
                 path={image.path}
                 caption={image.caption}
                 images={images}
-                slideLeft={slideLeft}
-                slideRight={slideRight}
                 index={index}
                 slideIndex={i}
                 direction={direction}

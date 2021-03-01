@@ -2,13 +2,15 @@ import React, { useState, useEffect } from "react";
 import Slide from "./Slide";
 import Dots from "./Dots";
 import Buttons from "./Buttons";
-import userEvent from "@testing-library/user-event";
 
 function Slider() {
   const [images, setImages] = useState([]);
   const [error, setError] = useState(null);
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState("");
+  const [leavingIndex, setLeavingIndex] = useState(0);
+
+  let animate = '';
 
   useEffect(() => {
     const getData = () => {
@@ -37,16 +39,23 @@ function Slider() {
 
   const slideRight = () => {
     if (index < images.length - 1) {
+      setLeavingIndex((leavingIndex) => index);
       setIndex((index) => index + 1);
       setDirection((direction) => (direction = "right"));
+      animate = "animate-right";
     }
   };
 
   const slideLeft = () => {
     if (index > 0) {
+      setLeavingIndex((leavingIndex) => index);
       setIndex((index) => index - 1);
       setDirection((direction) => (direction = "left"));
+      animate = "animate-left";
+
     }
+    console.log("animate", animate)
+
   };
 
   if (error) return <h2>Something went wrong</h2>;
@@ -54,7 +63,7 @@ function Slider() {
 
   return (
     <div className="slider-container">
-      <div className="slider">
+      <div className={`slider animate-${direction}`}>
         {error
           ? error
           : images.map((image, i) => (
@@ -68,6 +77,7 @@ function Slider() {
                 index={index}
                 slideIndex={i}
                 direction={direction}
+                leavingIndex={leavingIndex}
               />
             ))}
         <div className="bottom">

@@ -2,9 +2,6 @@ import React from "react";
 
 const Slide = ({ path, caption, index, slideIndex, direction, leavingIndex, outClass }) => {
   
-  // console.log("direction", direction);
-  // console.log("index", index);
-  // console.log("slideIndex", slideIndex);
 
   const activeSlide = index === slideIndex ? "active" : "";
   const isPrevSlide = slideIndex === index - 1;

@@ -63,8 +63,8 @@ button {
 }
 
 .arrow-next {
-  border-left: 1px solid rgba(0, 0, 0, 0.063);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.063);
+  border: 1px solid rgba(0, 0, 0, 0.063);
+  border-top: 0;
 }
 
 button img {

@@ -35,7 +35,7 @@ function Slider() {
         });
     };
     getData();
-  }, [setIndex]);
+  }, []);
 
   const slideRight = () => {
     if (index < images.length - 1) {

@@ -9,8 +9,8 @@ function Slider() {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState("");
   const [leavingIndex, setLeavingIndex] = useState(0);
+  const [outClass, setOutClass] =  useState("")
 
-  let animate = '';
 
   useEffect(() => {
     const getData = () => {
@@ -39,19 +39,22 @@ function Slider() {
 
   const slideRight = () => {
     if (index < images.length - 1) {
-      setLeavingIndex((leavingIndex) => index);
+      setLeavingIndex((leavingIndex) => leavingIndex = index);
       setIndex((index) => index + 1);
       setDirection((direction) => (direction = "right"));
-      animate = "animate-right";
+      setOutClass(outClass => outClass = "out-left")
     }
   };
 
+  console.log("leavingIndex: ", leavingIndex, "index", index)
+
+
   const slideLeft = () => {
     if (index > 0) {
-      setLeavingIndex((leavingIndex) => index);
+      setLeavingIndex((leavingIndex) => leavingIndex = index);
       setIndex((index) => index - 1);
       setDirection((direction) => (direction = "left"));
-      animate = "animate-left";
+      setOutClass(outClass => outClass = "out-right")
     }
   };
 
@@ -73,6 +76,7 @@ function Slider() {
                 slideIndex={i}
                 direction={direction}
                 leavingIndex={leavingIndex}
+                outClass={outClass}
               />
             ))}
         <div className="bottom">

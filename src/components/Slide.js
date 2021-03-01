@@ -1,34 +1,23 @@
 import React from "react";
 
-const Slide = ({ path, caption, index, slideIndex, direction, leavingIndex }) => {
+const Slide = ({ path, caption, index, slideIndex, direction, leavingIndex, outClass }) => {
   
   // console.log("direction", direction);
   // console.log("index", index);
   // console.log("slideIndex", slideIndex);
 
   const activeSlide = index === slideIndex ? "active" : "";
-
-
   const isPrevSlide = slideIndex === index - 1;
   const isNextSlide = slideIndex === index + 1;
   const isLeavingSlide = leavingIndex === slideIndex;
   const previousSlideClasses = isPrevSlide ? "left-slide" : "";
   const nextSlideClasses = isNextSlide ? "right-slide" : "";
-
-  let outClass = "";
-
-  if (direction === 'right' && isLeavingSlide) {
-    outClass = 'out-left';
-  }   
-  if (direction === 'left' && isLeavingSlide)
-  {
-    outClass = 'out-right';
-  }
-
+  const outLeft = direction === 'right' && isLeavingSlide ? "out-left" : ""
+  const outRight =  direction === 'left' && isLeavingSlide ? "out-right" : ""
 
   return (
     <img
-      className={`${caption} slide ${previousSlideClasses} ${nextSlideClasses} ${outClass} ${activeSlide}`}
+      className={`${caption} slide ${previousSlideClasses} ${nextSlideClasses} ${outLeft} ${outRight} ${activeSlide}`}
       src={path}
       alt={caption}
     />

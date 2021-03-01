@@ -28,6 +28,7 @@ body,
   align-items: center;
   justify-content: center;
 }
+
 .slider-container {
   width: 590px;
   height: 680px;
@@ -44,8 +45,6 @@ body,
   top: 0;
   z-index: -1;
 }
-
-
 
 button {
   background: white;
@@ -100,6 +99,7 @@ button img {
   width: 100%;
   z-index: 10;
 }
+
 .dot {
   border-radius: 50%;
   width: 0.4rem;
@@ -119,12 +119,11 @@ button img {
   opacity: 1;
 }
 
-
-
 .slide.left-slide {
   transform: translateX(-100%);
   z-index: 1;
 }
+
 .slide.right-slide {
   transform: translateX(100%);
   z-index: 1;
@@ -135,6 +134,7 @@ button img {
   transition: transform 1s;
   z-index: 2;
 }
+
 .slide.out-right {
   transform: translateX(100%);
   transition: transform 1s;

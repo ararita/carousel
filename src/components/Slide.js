@@ -1,6 +1,6 @@
 import React from "react";
 
-const Slide = ({ path, caption, index, slideIndex, direction, leavingIndex, outClass }) => {
+const Slide = ({ path, caption, index, slideIndex, direction, leavingIndex }) => {
   
 
   const activeSlide = index === slideIndex ? "active" : "";

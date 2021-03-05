@@ -76,7 +76,6 @@ function Slider() {
                 slideIndex={i}
                 direction={direction}
                 leavingIndex={leavingIndex}
-                outClass={outClass}
               />
             ))}
         <div className="bottom">

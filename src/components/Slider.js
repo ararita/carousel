@@ -9,7 +9,6 @@ function Slider() {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState("");
   const [leavingIndex, setLeavingIndex] = useState(0);
-  const [outClass, setOutClass] =  useState("")
 
 
   useEffect(() => {
@@ -42,7 +41,6 @@ function Slider() {
       setLeavingIndex((leavingIndex) => leavingIndex = index);
       setIndex((index) => index + 1);
       setDirection((direction) => (direction = "right"));
-      setOutClass(outClass => outClass = "out-left")
     }
   };
 
@@ -54,7 +52,6 @@ function Slider() {
       setLeavingIndex((leavingIndex) => leavingIndex = index);
       setIndex((index) => index - 1);
       setDirection((direction) => (direction = "left"));
-      setOutClass(outClass => outClass = "out-right")
     }
   };
 
